@@ -1,0 +1,30 @@
+{
+  "name": "through-stream",
+  "version": "0.0.1",
+  "description": "Base stream class for through RW stream",
+  "keywords": [],
+  "author": "Raynos <raynos2@gmail.com>",
+  "repository": "git://github.com/Raynos/through-stream.git",
+  "main": "index",
+  "homepage": "https://github.com/Raynos/through-stream",
+  "contributors": [
+    {
+      "name": "Jake Verbaten"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Raynos/through-stream/issues",
+    "email": "raynos2@gmail.com"
+  },
+  "dependencies": {
+    "readable-stream": "0.0.1"
+  },
+  "devDependencies": {},
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/Raynos/through-stream/raw/master/LICENSE"
+    }
+  ],
+  "scripts": {}
+}
