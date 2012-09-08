@@ -20,6 +20,30 @@ var through = require("through-stream")
 // Do stuff with stream
 ```
 
+The write / read / end functions are optional and default to 
+
+```
+function write(data, buffer) {
+    buffer.push(data)
+}
+
+function read(bytes, buffer) {
+    return buffer.shift()
+}
+
+function end() {
+    this.emit('end')
+}
+```
+
+If you would like to overwrite just the `end` logic then do
+
+```
+through(through.write, through.read, function customEnd() {
+    ...
+})
+```
+
 ## Installation
 
 `npm install through-stream`
