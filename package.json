@@ -19,7 +19,10 @@
   "dependencies": {
     "readable-stream": "0.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "write-stream": "~0.1.0",
+    "read-stream": "~0.1.0"
+  },
   "licenses": [
     {
       "type": "MIT",
