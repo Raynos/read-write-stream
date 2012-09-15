@@ -1,6 +1,6 @@
 {
   "name": "through-stream",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Base stream class for through RW stream",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
@@ -17,11 +17,11 @@
     "email": "raynos2@gmail.com"
   },
   "dependencies": {
-    "readable-stream": "0.0.1"
+    "readable-stream": "~0.0.2"
   },
   "devDependencies": {
     "write-stream": "~0.1.0",
-    "read-stream": "~0.1.0"
+    "read-stream": "~0.2.0"
   },
   "licenses": [
     {
