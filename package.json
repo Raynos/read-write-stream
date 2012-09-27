@@ -1,19 +1,19 @@
 {
-  "name": "through-stream",
-  "version": "0.0.2",
-  "description": "Base stream class for through RW stream",
+  "name": "read-write-stream",
+  "version": "0.1.0",
+  "description": "Base stream class for RW stream",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
-  "repository": "git://github.com/Raynos/through-stream.git",
+  "repository": "git://github.com/Raynos/read-write-stream.git",
   "main": "index",
-  "homepage": "https://github.com/Raynos/through-stream",
+  "homepage": "https://github.com/Raynos/read-write-stream",
   "contributors": [
     {
       "name": "Jake Verbaten"
     }
   ],
   "bugs": {
-    "url": "https://github.com/Raynos/through-stream/issues",
+    "url": "https://github.com/Raynos/read-write-stream/issues",
     "email": "raynos2@gmail.com"
   },
   "dependencies": {
@@ -28,7 +28,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/Raynos/through-stream/raw/master/LICENSE"
+      "url": "http://github.com/Raynos/read-write-stream/raw/master/LICENSE"
     }
   ],
   "scripts": {}
