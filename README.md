@@ -1,52 +1,70 @@
-# through-stream
+# read-write-stream
 
 Base stream class for through RW stream
 
-## Example
+## Example through
 
+``` js
+var through = require("read-write-stream")
+    , transform = through(function write(chunk, queue) {
+        queue.push(chunk * chunk)
+    }).stream
+    , to = require("write-stream").toArray
+    , from = require("read-stream").fromArray
+
+from([1,2,3]).pipe(transform).pipe(to([], function end(list) {
+    console.log(list); // [1, 4, 9]
+}))
 ```
-// The buffer is shared among the stream and is an array
-var through = require("through-stream")
-    , stream = through(function write(chunk, buffer) {
-        buffer.push(chunk)
-        // Handle writing the chunk
-    }, function read(bytes, buffer) {
-        // Handle reading the bytes
-        return buffer.shift()
-    }, function end() {
-        // Stream has ended
+
+## Example duplex
+
+``` js
+var axon = require("axon")
+    , pub = axon.socket("push")
+    , sub = axon.socket("pull")
+    , duplex = require("read-write-stream")
+    , from = require("read-stream").fromArray
+    , to = require("write-stream").toArray
+
+// Writable end of duplex
+var queue = duplex(function write(chunk) {
+    pub.send(chunk)
+}, function end() {
+    pub.send("__GOODBYE__")
+    setTimeout(pub.close.bind(pub), 1000)
+})
+
+// Readable end of duplex
+sub.on("message", function (chunk) {
+    chunk = chunk.toString()
+    if (chunk === "__GOODBYE__") {
+        queue.end()
+        sub.close()
+    } else {
+        queue.push(chunk)
+    }
+})
+
+// Open underlying writable data source
+pub.bind(3000, function () {
+    // Open underlying readable data source
+    sub.connect(3000, function () {
+        // flow data from array
+        from(["foo", "bar", "baz"])
+            // into duplex
+            .pipe(queue.stream)
+            // into array
+            .pipe(to([], function (list) {
+                console.log("list from sub", list)
+            }))
     })
-
-// Do stuff with stream
-```
-
-The write / read / end functions are optional and default to 
-
-```
-function write(data, buffer) {
-    buffer.push(data)
-}
-
-function read(bytes, buffer) {
-    return buffer.shift()
-}
-
-function end() {
-    this.emit('end')
-}
-```
-
-If you would like to overwrite just the `end` logic then do
-
-```
-through(through.write, through.read, function customEnd() {
-    ...
 })
 ```
 
 ## Installation
 
-`npm install through-stream`
+`npm install read-write-stream`
 
 ## Contributors
 
