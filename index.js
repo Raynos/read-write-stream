@@ -69,6 +69,7 @@ function defaultWrite(data, queue) {
 
 function defaultEnd(queue) {
     queue.end()
+    this.emit("finish")
 }
 
 function defaultRead(bytes, queue) {
