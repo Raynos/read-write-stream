@@ -28,6 +28,8 @@ function ReadWriteStream(write, end, read, state) {
         , stream = new Stream()
         , queue = Queue(stream)
 
+    stream.writable = true
+
     queue.stream = stream
 
     extend(queue, state || {})
