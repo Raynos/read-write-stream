@@ -5,7 +5,6 @@ var Stream = require("readable-stream")
 ReadWriteStream.read = defaultRead
 ReadWriteStream.write = defaultWrite
 ReadWriteStream.end = defaultEnd
-ReadWriteStream.wrap = wrap
 
 module.exports = ReadWriteStream
 
@@ -77,10 +76,4 @@ function defaultEnd(queue) {
 
 function defaultRead(bytes, queue) {
     return queue.shift()
-}
-
-function wrap(old) {
-    var stream = new Stream()
-    stream.wrap(old)
-    return stream
 }
