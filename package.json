@@ -17,7 +17,7 @@
     "email": "raynos2@gmail.com"
   },
   "dependencies": {
-    "readable-stream": "git://github.com/isaacs/readable-stream.git",
+    "readable-stream": "https://github.com/isaacs/readable-stream/archive/master.tar.gz",
     "read-stream": "~0.5.1",
     "xtend": "~1.0.3"
   },
