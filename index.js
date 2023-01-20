@@ -1,3 +1,5 @@
+// Evaluate socket.dev report.
+
 var Stream = require("readable-stream")
     , Queue = require("read-stream/lib/queue")
     , extend = require("xtend")
